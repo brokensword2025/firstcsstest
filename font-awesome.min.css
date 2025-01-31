@@ -1,0 +1,845 @@
+table.bordaSimples {
+	border-collapse: collapse;
+	font-size:12px;
+}
+table.bordaSimples tr td {
+	border:1px solid #999999;
+}
+button{
+	cursor: pointer;
+}
+button img{
+	vertical-align: middle;
+	border:0px;
+}
+.input_focus{
+	border:1px solid #000000;
+	background-color:#FFFFEE;
+}
+.bordas{
+	border-color: #000000;
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+}
+a:link {
+	text-decoration: none;
+	/* Skakum - Interferindo no novo SGA */
+	/*color: #000099;*/
+}
+a:visited {
+	text-decoration: none;
+	/* Skakum - Interferindo no novo SGA */
+	/*color: #000099;*/
+}
+a:hover {
+	text-decoration: underline;
+	color: #000099;
+}
+a:active {
+	text-decoration: none;
+	color: #000099;
+}
+.tabela {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: 1px solid #000000;
+	background-color: #e7e7e4;
+}
+
+.tabelaVerdana {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	font-weight:bold;
+	border: 1px solid #000000;
+	background-color: #FFFFFF;
+}
+
+.tabelarel {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border-width: 1px 0px 0px 1px;
+	border-color: #000000;
+	border-style: solid;
+	background-color: #e9e9e9;
+}
+.postit_transp
+{
+	position:absolute;
+	padding:5px;
+	border-width:1px;
+}
+
+body {
+	margin-left: 0px;
+	/* Skakum - Interferindo no novo SGA */
+	/*margin-top: 0px;*/
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+.formulario {
+	border: 1px solid #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-align: left;
+}
+
+.formularioReadOnly {
+	border: 1px solid #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-align: left;
+	background-color:#DDDDDD;
+}
+
+.campoFormularioUpper {
+	border: 1px solid #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-align: left;
+	text-transform:uppercase;
+}
+
+.campoFormularioLower {
+	border: 1px solid #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-align: left;
+	text-transform:lowercase;
+}
+
+.campoFormularioTexto{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+.campoFormularioRadio{
+	border:none;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+.formularioLeitura{
+	background-color: #e9e9e9;
+}
+.highlightColumn {
+	background: #eef;
+}
+.highlightRow {
+	background: #667b99;
+}
+.corsim {
+	background-color: #ffffff;
+}
+.cornao {
+	background-color: #F9F9F9;
+}
+.header {
+	background-image:url(../../imagens/header.gif);
+	background-repeat: no-repeat;
+	color: #fff;
+	padding-left: 30px;
+	padding-right:5px;
+	padding-bottom:5px;
+	padding-top:5px;
+	height: auto;
+	cursor: pointer;
+}
+.headerSortUp {
+	background-image: url(../../imagens/header_asc.gif);
+	background-repeat: no-repeat;
+	padding-left: 30px;
+	padding-right:5px;
+	padding-bottom:5px;
+	padding-top:5px;
+	height: auto;
+	cursor: pointer;
+}
+.headerSortDown {
+	background-image: url(../../imagens/header_desc.gif);
+	background-repeat: no-repeat;
+	padding-left: 30px;
+	padding-right:5px;
+	padding-bottom:5px;
+	padding-top:5px;
+	height: auto;
+	cursor: pointer;
+}
+.buscaNome{}
+
+#RecBusca input{
+border:1px solid #000000;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:9px;
+}
+#RecBusca{
+margin-left:auto;
+margin-right:auto;
+text-align:center;
+margin-left:20px;
+padding:10px;
+border:#CCCCCC solid 1px;
+vertical-align:middle;
+width:200px;
+height:auto;
+}
+
+#RecFormaPag{
+display:none;
+width:90%;
+height:300px;
+top:50%;
+margin-top:-200px;
+left:5%;
+position:absolute;
+background-color:#FFFFFF;
+z-index:150;
+border:2px solid #999999;
+}
+
+#Mascara{
+display:none;
+width:100%; 
+height:100%;
+position:absolute;
+border:1px solid #000000;
+background-color:#000000;
+opacity:0.60; -moz-opacity: 0.60;
+filter: alpha(opacity=60);
+z-index:100;}
+
+.verdana0negrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-weight: bold;
+	color: #000000;	
+}
+.verdana1negrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #000000;	
+}
+.verdana0 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #000000;	
+}
+
+.verdana0verde {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color:#009900;	
+}
+
+/*verdana 1 tamanho P */
+.verdana1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;	
+}
+
+/*verdana 11 tamanho M - Dreco em 06/09/2013 */
+
+.verdana11 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;	
+}
+
+/*verdana 12 tamanho M - Dreco em 06/09/2013 */
+
+.verdana12 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;	
+}
+
+.verdana1negrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #000000;	
+}
+
+.verdana1verde {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color:#009900;	
+}
+
+.verdana1branco{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #FFFFFF;	
+}
+
+.verdana1verdenegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color:#009900;	
+}
+
+.verdana1amarelanegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color:#FC0;
+}
+
+.verdana2verde {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color:#009900;	
+}
+.verdana2verdenegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#009900;	
+}
+
+.verdana1cinza{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #808080;	
+}
+.verdana1BrancoNegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFFFFF;	
+}
+.verdana1AzulNegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color:#003399;
+}
+.verdana1VermelhaNegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color:#FF0000;	
+}
+.verdana1VinhoNegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color:#990000;	
+}
+
+/*verdana 2 tamanho M */
+.verdana2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;	
+}
+.verdana2negrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;	
+}
+.verdana2cinza{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #808080;	
+}
+.verdana2amarelo_escuro_negrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#E18700;
+}
+.verdana2BrancoNegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;	
+}
+.verdana2MarronNegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #663300;	
+}
+.verdana2AzulNegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#003399;	
+}
+.verdana2VermelhaNegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FF0000;	
+}
+.verdana2VinhoNegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#990000;	
+}
+/*verdana 3 tamanho G */
+.verdana3 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #000000;	
+}
+.verdana3negrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #000000;	
+}
+.verdana3cinza{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	color: #808080;	
+}
+.verdana3BrancoNegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;	
+}
+.verdana3AzulNegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color:#003399;	
+}
+.verdana3VermelhaNegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color:#FF0000;	
+}
+.verdana3VinhoNegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color:#990000;	
+}
+/*verdana 4 tamanho GG */
+.verdana4 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #000000;	
+}
+.verdana4negrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: #000000;	
+}
+.verdana4cinza{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	color: #808080;	
+}
+.verdana4BrancoNegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: #FFFFFF;	
+}
+.verdana4AzulNegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color:#003399;	
+}
+
+.verdana4VerdeNegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color:#009900;	
+}
+
+.verdana4VermelhaNegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color:#FF0000;	
+}
+.verdana4VinhoNegrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color:#990000;	
+}
+
+
+.verdana5 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+}
+.verdana5negrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.fundo_tabela {
+	/*background-color: #A0B6FE;*//*removi a cor nova, voltei o padrão antigo do SGA flavio 26/01/2016*/
+	background-image:url('/academico/images/fundoTabela.gif'); 
+	background-repeat:repeat-x;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #FFFFFF !important;
+}
+.formularioTrans {
+
+	border: 1px none #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+.borda_tabela{
+	border-color: #CCCCCC;
+	border-width: 0px 1px 0px 0px;
+	border-style: solid;
+}
+.bordaTabelaBaixo {
+	border-style: solid;
+	border-width: 0px 1px 1px 0px;
+	border-color: #000000;
+}
+.bordaBaixo {
+	border-style: solid;
+	border-width: 0px 0px 1px 0px;
+	border-color: #000000;
+}
+.bordaBaixoCima {
+	border-style: solid;
+	border-width: 1px 0px 1px 0px;
+	border-color: #000000;
+}
+.bordaBaixoDireito {
+	border-style: solid;
+	border-width: 0px 1px 1px 0px;
+	border-color: #000000;
+}
+
+.bordaTabelaDireito {
+	border-style: solid;
+	border-width: 0px 1px 0px 0px;
+	border-color: #000000;
+}
+.bordaTabelaDireitoCima{
+	border-style: solid;
+	border-width: 1px 1px 0px 0px;
+	border-color: #000000;
+}
+
+.bordaTabelaCima {
+	border-style: solid;
+	border-width: 1px 1px 0px 1px;
+	border-color: #000000;
+}
+
+.bordaCima {
+	border-style: solid;
+	border-width: 1px 0px 0px 0px;
+	border-color: #000000;
+}
+.bordaTabelaBaixoDireito {
+	border-style: solid;
+	border-width: 0px 1px 1px 1px;
+	border-color: #000000;
+}
+
+#suporte{
+	margin: 5px 5px 0px 0px;
+	border-color: #003399;
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	width: 200px;
+}
+.brclear{
+	font-size:3px;
+	clear:both;
+}
+
+ul.nav { 
+	margin:0; 
+	padding:0;
+}
+ul.nav li {
+	list-style:none; 
+	display:inline;
+}
+ul.nav li a { 
+	text-align:center;
+	float:center;
+	width:345px;
+	height:20px;
+	font:11px  Verdana, Arial, Helvetica, sans-serif;
+	background:#f1f1f1;
+	color:#000;
+	text-align:center;
+	border-width:0.1em;
+	border-color:#fff #909090 #909090 #fff;
+	border-style:solid;
+	text-decoration:none;
+}
+ul.nav a:hover{
+	background:#999;
+	color:#fff;
+	border-color:#000 #fafafa #fafafa #000;	
+	text-decoration:none;
+}
+
+ul.nav_ativ { 
+	margin:0; 
+	padding:0;
+}
+ul.nav_ativ li {
+	list-style:none; 
+	display:inline;
+}
+ul.nav_ativ li a { 
+	text-align:center;
+	float:center;
+	width:225px;
+	height:20px;
+	font:11px  Verdana, Arial, Helvetica, sans-serif;
+	background:#f1f1f1;
+	color:#000;
+	text-align:center;
+	border-width:0.1em;
+	border-color:#fff #909090 #909090 #fff;
+	border-style:solid;
+	text-decoration:none;
+}
+ul.nav_ativ a:hover{
+	background:#999;
+	color:#fff;
+	border-color:#000 #fafafa #fafafa #000;	
+	text-decoration:none;
+}
+
+/* */
+
+.tabela_dir_baixo { 
+	border-top: 1px none #000000; 
+	border-right: 1px outset #000000; 
+	border-bottom: 1px outset #000000; 
+	border-left: 1px none #000000; 
+} 
+
+.tabela_esq_baixo { 
+	border-top: 1px none #000000; 
+	border-right: 1px none #000000; 
+	border-bottom: 1px outset #000000; 
+	border-left: 1px outset #000000; 
+}
+.tabela_dir { 
+	border-right: 1px outset #000000; 
+}
+.tabela_esq { 
+	border-left: 1px outset #000000; 
+}
+.tabela_esq_dir { 
+	border-top: 1px none #000000; 
+	border-right: 1px outset #000000; 
+	border-bottom: 1px none #000000; 
+	border-left: 1px outset #000000; 
+}
+
+.tabela_cima_esq { 
+	border-top: 1px outset #000000; 
+	border-left: 1px outset #000000;
+} 
+
+.tabela_cima_baixo { 
+	border-top: 1px outset #000000; 
+	border-right: 1px none #000000; 
+	border-bottom: 1px outset #000000; 
+	border-left: 1px none #000000;
+} 
+.tabela_cima_dir_esq { 
+	border-top: 1px outset #000000; 
+	border-right: 1px outset #000000; 
+	border-bottom: 1px none #000000; 
+	border-left: 1px outset #000000;
+} 
+.tabela_cima_baixo_esq { 
+	border-top: 1px outset #000000; 
+	border-right: 1px none #000000;
+	border-bottom: 1px outset #000000; 
+	border-left: 1px outset #000000;
+} 
+.tabela_cima_baixo_dir{ 
+	border-top: 1px outset #000000; 
+	border-right: 1px outset #000000;
+	border-bottom: 1px outset #000000; 
+	border-left: 1px none #000000;
+} 
+.tabela_dir_esq_baixo { 
+	border-top: 1px none #000000; 
+	border-right: 1px outset #000000; 
+	border-bottom: 1px outset #000000; 
+	border-left: 1px outset #000000; 
+}
+.tabela_completo { 
+	border-top: 1px outset #000000; 
+	border-right: 1px outset #000000; 
+	border-bottom: 1px outset #000000; 
+	border-left: 1px outset #000000; 
+} 
+.tabela_baixo { 
+	border-top: 1px none #000000; 
+	border-right: 1px none #000000; 
+	border-bottom: 1px outset #000000; 
+	border-left: 1px none #000000;
+} 
+.tabela_cima { 
+	border-top: 1px outset #000000; 
+} 
+.edit_focus {
+	background-color: #FFFFCC;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;	
+}
+
+.edit_blur {
+	background-color: #FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;	
+}
+
+.edit_disable {
+	background-color: #E9E9E9;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #999999;	
+}
+.margem{
+	text-align:left;
+}
+
+#incluir{
+	background:#DBDBDB;
+	height:25px;	
+}
+#incluir:hover{
+	cursor:pointer;	
+}
+
+#autDocs .autBottomBtn {
+	background-color: #313a46;
+	height: 44px;
+	display: flex;
+	width:420px;
+	border-radius: 0 0 10px 10px;
+}
+
+#autDocs .cardVerifyDocs {
+	width:420;
+	background-color:#EEEEEE;
+	box-shadow: rgb(50 50 93 / 25%) 0px 6px 12px -2px, rgb(0 0 0 / 30%) 0px 3px 7px -3px;
+    border-radius: 10px;
+}
+
+#autDocs .bodyCardAut {
+	box-shadow: rgb(0 0 0 / 28%) 0px 20px 17px -14px inset, rgb(0 0 0 / 16%) 1px -20px 14px -13px inset;
+}
+
+#autDocs .cardVerifyDocs #verificar:hover {
+	background-color: #424e5c !important;
+	border-radius: 0 0 0 10px;
+	transition: background .2s linear;
+}
+
+#autDocs .cardVerifyDocs #limpar:hover {
+	background-color: #424e5c !important;
+	border-radius: 0 0 10px 0;
+	transition: background .2s linear;
+}
+
+#autDocs .cardValidaDoc {
+	border: 1px solid #0000003b;
+	border-radius: 10px;
+	background-color:#EEEEEEB8;
+	box-shadow: rgb(50 50 93 / 25%) 0px 6px 12px -2px, rgb(0 0 0 / 30%) 0px 3px 7px -3px;
+	width: 36rem;
+}
+
+#autDocs .rowDescValDoc {
+	display: flex;
+	margin-bottom: 0.25rem;
+}
+
+.rowDescValDoc span:first-child {
+    width: 38%;
+	margin-right: 0.5rem;
+}
+
+.contentDescValDoc {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-inline: 1.5rem;
+    box-shadow: rgb(100 100 111 / 29%) 0px 0px 4px 0px;
+}
+
+
+.botao{	
+	outline: none;
+	inline:none;
+	border:1px solid #363636;
+	cursor:pointer; 	
+	height:30px;
+	padding:0px 25px 3px 25px;	
+	background:url(/imagens/botoes_novos/bg_botao.png) repeat-x center; 
+	font-size:12px;
+	-webkit-border-radius:8px;  
+	-moz-border-radius: 8px; 
+	border-radius: 8px;
+	color:#FFFFFF;
+}
+
+.botao:hover{	
+	outline: none;
+	border:1px solid #363636;
+	inline:none;
+	background:url(/imagens/botoes_novos/bg_botao_hover.png) repeat-x center;  
+	color:#FFF; 
+}
+
+.btnimpress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 10px 20px;
+    background-color: white;
+    color: rgb(100 100 111 / 29%) 0px 0px 4px 0px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+/* Ícone SVG do botão */
+.btn .icon {
+    width: 20px;
+    height: 20px;
+    fill: black; /* Define o ícone como preto */
+}

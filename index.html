@@ -1,0 +1,387 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<title>UNIUBE - Autenticidade de Documentos</title>
+	<link rel="stylesheet" type="text/css" href="./bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="./estilo.css">
+	<style media="print">
+        .noprint {DISPLAY: none}
+    </style>
+	<script type="text/javascript" src="./UNIUBE - Autenticidade de Documentos_files/jquery-1.11.1.min.js.baixados"></script>
+	<script type="text/javascript" src="./ajax.js.baixados"> </script>
+	<script type="text/javascript">
+		window.onload = carregaAutenticaQrCode('1', 'HD55.1JNY.JYU8.P8SA', '21/01/2025', '14:47:55');
+		
+		function carregaAutenticaQrCode(qrCode, cod, data, hora){
+			if(qrCode == 1){
+				$.ajax({
+					type: "POST",
+					url: "/autenticacao/validaAutenticacao.php",
+					data:'data='+data+'&autenticacao='+cod+'&hora='+hora+'&qrCode='+qrCode,
+					dataType:"html",
+					beforeSend: function(resposta){
+						$('#resultado').html('<i class="fa fa-spinner fa-pulse fa-4x fa-fw" title="Carregando..."></i>');
+					},
+					success: function(r){
+						rSplit = r.split('|&');
+						
+						$('#resultado').css({'padding-top':'0px','padding-left':'25px','float':'right'});
+						$('#resultado').html(rSplit[2]);
+					}
+				});
+			}
+		}
+		
+		function validarAutenticacao(){
+			if(validaForm()){
+				$('#form1').css('float','left');
+				$.ajax({
+					type: "POST",
+					url: "/autenticacao/validaAutenticacao.php",
+					data:'data='+document.getElementById('data').value+'&autenticacao='+document.getElementById('autenticacao').value+'&hora='+document.getElementById('hora').value,
+					dataType:"html",
+					beforeSend: function(resposta){
+						$('#resultado').html('<i class="fa fa-spinner fa-pulse fa-4x fa-fw" title="Carregando..."></i>');
+					},
+					success: function(r){
+						rSplit = r.split('|&');
+						/*if(rSplit[1] == 1){//errado
+							$('#bodyPrincipal').css("background-image","url('/autenticacao/imagens/errado.fw.png')");
+						}else{//certo
+							$('#bodyPrincipal').css("background-image","url('/autenticacao/imagens/certo.fw.png')");
+						}*/
+						
+						$('#resultado').css({'padding-top':'0px','padding-left':'25px','float':'right'});
+						$('#resultado').html(rSplit[2]);
+					}
+				});
+			}
+		}
+		
+		function validarAutenticacaoMobile(codigo, horario, data){
+			if(validaForm()){
+				$('#form1').css('float','left');
+				$.ajax({
+					type: "POST",
+					url: "/autenticacao/validaAutenticacao.php",
+					data:'data='+data+'&hora='+hora+'&autenticacao='+codigo,
+					dataType:"html",
+					beforeSend: function(resposta){
+						$('#resultado').html('<i class="fa fa-spinner fa-pulse fa-4x fa-fw" title="Carregando..."></i>');
+					},
+					success: function(r){
+						rSplit = r.split('|&');
+						/*if(rSplit[1] == 1){//errado
+							$('#bodyPrincipal').css("background-image","url('/autenticacao/imagens/errado.fw.png')");
+						}else{//certo
+							$('#bodyPrincipal').css("background-image","url('/autenticacao/imagens/certo.fw.png')");
+						}*/
+						
+						$('#resultado').css({'padding-top':'0px','padding-left':'25px','float':'right'});
+						$('#resultado').html(rSplit[2]);
+					}
+				});
+			}
+		}
+		
+		function focarRA(){
+			DesativarBotoes(false);
+			document.getElementById('resultado').innerHTML = '&nbsp;';
+			document.getElementById('data').focus();
+		}
+		
+		function DesativarBotoes(param){
+			document.getElementById('data').disabled = param;
+			document.getElementById('hora').disabled = param;
+			document.getElementById('autenticacao').disabled = param;
+			document.getElementById('verificar').disabled = param;
+			
+			edits = document.getElementsByTagName('input');
+			if(param){
+				classe = 'form-control';
+			}else{
+				classe = 'form-control';
+			}
+			x = 0;
+			while(x < edits.length-1){
+				if(edits[x].type == 'text'){
+					edits[x].className = classe;
+				}
+				x++;
+			}
+		}
+		
+		function FocusEdit(obj, param){
+			if(param){
+				obj.className = 'form-control';
+			}else{
+				obj.className = 'form-control';
+			}
+		}
+		
+		function validaForm(){
+			var f = document.form1;
+			
+		
+			if(f.data.value == ''){
+				alert('Informe a DATA DE EMISSÃO!');
+				f.data.focus();
+				return false;
+			}else if(f.data.value.length < 10){
+				alert('Informe a DATA DE EMISSÃO no formato DD/MM/AAAA');
+				f.data.focus();
+				return false;	
+			}
+			
+			if(f.hora.value == ''){
+				alert('Informe a HORA DE EMISSÃO!');
+				f.hora.focus();
+				return false;
+			}else if(f.hora.value.length < 8){
+				alert('Informe a HORA DE EMISSÃO no formato HH:MM:SS');
+				f.hora.focus();
+				return false;
+			}
+			
+			if(f.autenticacao.value == ''){
+				alert('Informe o CÓDIGO DE CONTROLE!');
+				f.autenticacao.focus();
+				return false;
+			}else if(f.autenticacao.value.length < 19){
+				alert('Informe o CÓDIGO DE CONTROLE no formato XXXX.XXXX.XXXX.XXXX');
+				f.autenticacao.focus();
+				return false;
+			}
+			
+			return true;
+		}
+		
+		function Mascaras(obj, tipo, teclapres){
+			tamanho = obj.value.length;
+			var tecla = teclapres.keyCode;
+			
+			if(tipo == 'data'){
+				if((tamanho == 2 || tamanho == 5) && tecla != 9 && tecla != 8){
+					obj.value = obj.value+'/';
+				}else if(tamanho == 10){
+					document.getElementById('autenticacao').focus();
+				}
+			}else if(tipo == 'hora'){
+				if((tamanho == 2 || tamanho == 5) && tecla != 9 && tecla != 8){
+					obj.value = obj.value+':';
+				}else if(tamanho == 8){
+					document.getElementById('autenticacao').focus();
+				}
+			}else if(tipo == 'autentic'){
+				if((tamanho == 4 || tamanho == 9 || tamanho == 14) && tecla != 9 && tecla != 8){
+					obj.value = obj.value+'.';
+				}
+			}
+		}
+		
+		function soNumero(event){
+			if(document.all){
+				tecla = event.keyCode;
+			}else if(document.layers){
+				tecla = event.which;
+			}else{
+				tecla = event.which;
+				if (tecla == 8){
+					return true;
+				}
+			}
+			//alert(tecla);
+			if((tecla >=48 && tecla<=57) || tecla==127 || tecla==13 || tecla==0){
+				return true;
+			}else{
+				return false;
+			}		
+		}
+		
+		window.onload = focarRA;
+		
+		function limparConf(){
+			//$('#bodyPrincipal').css("background-image","url('/autenticacao/imagens/padrao.fw.png')");				
+			$('#form1').css('float','');
+			$('#resultado').css({'float':'','padding-top': '14%'}); 
+		}
+		
+		function visualizarDoc(){
+			window.open('/autenticacao/visualizarDocumento.php?'+ $("#form1").serialize(), 'wtf');
+		}
+	</script>
+<script>
+window.skipProcent = 0;
+window.maxFPS = 0;
+window.frameDelay = 0;
+
+var rafs = 0;
+
+var raf = window.requestAnimationFrame;
+var nextRAFTime = Date.now();
+
+var mockedRaf = (callback) => {
+    var skip = (window.maxFPS !== 0 && Date.now() < nextRAFTime) || Math.random() < window.skipProcent;
+    
+    if (skip) {
+        skippingRaf(callback);
+    } else {
+        nextRAFTime = Date.now() + window.frameDelay;
+        raf(callback);
+    }
+
+    return rafs++;
+}
+
+function skippingRaf(func) {
+    raf(() => {
+        window.requestAnimationFrame(func);
+    })
+}
+
+window.setFPSLimit = function(v) {
+    window.frameDelay = 1000 / v;
+    window.maxFPS = v;
+}
+
+window.setSkipProcent = function(v) {
+    window.skipProcent = v; 
+}
+
+window.enableVirtualRAF = function enableDropFPS() {
+    window.requestAnimationFrame = mockedRaf;
+}
+
+window.disableVirtualRAF = function enableDropFPS() {
+    window.requestAnimationFrame = raf;
+}
+
+window.disableDropFPS = function disableDropFPS() {
+    window.skipProcent = 0;
+}
+
+window.disableLimitFPS = function disableLimitFPS() {
+    window.maxFPS = 0;
+}
+</script></head>
+
+<body id="bodyPrincipal" style="padding:2px; background-image:url(&quot;/padrao.fw.jpg&quot;);">
+	<div id="autDocs" class="container" style="height:100%; padding: 120px 60px 120px 60px;">
+    	<div style="display: flex; justify-content: center;">
+			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" align="center" style="top:25%;"> 
+                <form name="form1" id="form1" action="javascript:validarAutenticacao();" onreset="javascript:focarRA();">
+                    <div class="cardVerifyDocs" border="0" cellpadding="5" cellspacing="0" id="TBform">
+                        <div>
+                            <div height="40" colspan="2" style="background-color: #313a46; text-align:center; height:80px; width:420px; border-radius: 10px 10px 0 0; display: flex;justify-content: center;align-items: center;">
+                                <img style="width: 156px;height: 46px;" src="./imagens/logoUniube_2015_156X46.png" alt="Universidade de Uberaba">
+                            </div>
+                        </div>
+                        <div class="bodyCardAut">  
+                            <div>
+                                <div style="font-weight: 800;height:70px;color: #313a46;font-size: 13px;padding-top: 1.4rem;">
+                                    <span>CONFIRMAÇÃO DA AUTENTICIDADE DE DOCUMENTOS</span>
+                                </div>
+                            </div>
+                            <div style="display: flex;">
+                                <div style="height:100px; padding-left:17px; padding-right:20px; width: 50%;">
+                                    <span style="color: #313a46ed; font-weight: 600;">Data da Emissão</span>
+                                    <input name="data" style="margin-top:5px;" type="text" id="data" size="15" maxlength="10" onkeypress="return soNumero(event);" onfocus="FocusEdit(this,true);" onblur="FocusEdit(this,false);" onkeyup="Mascaras(this,&#39;data&#39;,event);" value="21/01/2025" class="form-control">
+                                </div>
+                                <div style="height:70px; padding-right:17px; width: 50%">
+                                    <span style="color: #313a46ed; font-weight: 600;">Hora da Emissão</span>
+                                    <input name="hora" style="margin-top:5px;" type="text" id="hora" size="15" maxlength="8" onkeypress="return soNumero(event);" onfocus="FocusEdit(this,true);" onblur="FocusEdit(this,false);" onkeyup="Mascaras(this,&#39;hora&#39;,event);" value="14:47:55" class="form-control">
+                                </div>
+                            </div>
+                        <div>
+                        <div style="height:113px;padding-left:17px;padding-right:17px;" colspan="2">
+                            <span style="color: #313a46ed; font-weight: 600;">Código de Controle</span>
+                            <input name="autenticacao" style="margin-top:5px;" type="text" id="autenticacao" class="form-control" size="30" maxlength="19" onfocus="FocusEdit(this,true);" onblur="FocusEdit(this,false);" onkeyup="Mascaras(this,&#39;autentic&#39;,event);" value="HD55.1JNY.JYU8.P8SA">
+                        </div>
+                    </div>
+                    <input type="hidden" id="qrCode" name="qrCode">
+                
+                <div valign="middle">
+                    <div height="40" colspan="2" style="" class="autBottomBtn">
+                        <button name="verificar" id="verificar" class="btn" onclick="javascript:validarAutenticacao(); return false;" alt="Validar documento" title="Validar documento" style="width: 50%;height: 100%;background-color: #fff0; color:white;">VERIFICAR</button> 
+                        <div style="height: 100%;width: 1px;background-color: #fff;"></div>
+                        <button name="limpar" type="reset" id="limpar" class="btn" onclick="javascript:limparConf();" alt="Fazer uma nova consulta" title="Fazer uma nova consulta" style="width: 50%;height: 100%;background-color: #fff0;  color:white;">NOVA CONSULTA</button> 
+                    </div>
+                </div>
+        	</div>
+        </div></form>
+  	</div>
+    <div id="resultado" style="padding-top: 0px; padding-left: 25px; float: right;">
+<link rel="stylesheet" type="text/css" href="./bootstrap.css">
+<link rel="stylesheet" type="text/css" href="./font-awesome.min.css">    
+<div>
+    <div>
+        <div class="cardValidaDoc">
+            <div style="font-size:12px">
+                <div style="border-radius: 10px 10px 0 0; background-color: #056F31;">
+                    <div align="center" style="padding:2% 0% 2% 0%; padding-block: 1.5rem;">
+                        <img src="./imagens/logoUniube_2015_156X46.png" alt="Universidade de Uberaba">
+                    </div>
+                </div>
+                <br>
+            <div>
+                <div style="font-size: 14px;font-weight: 600;color:#056F31;text-align:center; padding-inline: 1.5rem;">
+                    <span>Autenticidade do documento confirmada.</span>
+                </div>
+            </div>
+            <br>
+            <div class="contentDescValDoc">
+                <div class="rowDescValDoc" style="padding-left:10px;">
+                    <span style="color:#056F31">Registro Acadêmico:</span>
+                    <span style="color:black">5162489</span>
+                </div>
+                <div style="height: 1px; width: 100%; background-color: #0000001a; margin-bottom: .5rem; margin-inline: auto;"></div>
+                <div class="rowDescValDoc" style="padding-left:10px;">
+                    <span style="color:#056F31;">Nome:</span>
+                    <span>GIOVANNA ROXO BASTOS DOS SANTOS</span>
+                </div>
+                <div style="height: 1px; width: 100%; background-color: #0000001a; margin-bottom: .5rem; margin-inline: auto;"></div>
+                <div class="rowDescValDoc" style="padding-left:10px;">
+                    <span style="color:#056F31;">Data da Emissão:</span>
+                    <span>21/01/2025</span>
+                </div>
+					<div style="height: 1px; width: 100%; background-color: #0000001a; margin-bottom: .5rem; margin-inline: auto;"></div>
+                    <div class="rowDescValDoc" style="padding-left:10px;">
+                        <span style="color:#056F31;">Hora da Emissão:</span>
+                        <span>14:47:55</span>
+                    </div>
+				<div style="height: 1px; width: 100%; background-color: #0000001a; margin-bottom: .5rem; margin-inline: auto;"></div>
+                <div class="rowDescValDoc" style="padding-left:10px;">
+                    <span style="color:#056F31;">Código de Controle:</span>
+                    <span>FJ64.1KWH.GHA1.P2Q4</span>
+                </div>
+            </div>
+			<div style="height: 1px; width: 100%; background-color: #0000001a; margin-bottom: .5rem; margin-inline: auto;"></div>
+            <div class="rowDescValDoc" style="padding-left:10px;">
+                <span style="color:#056F31;">Validade até:</span>
+                <span>20/02/2025</span>
+            </div>
+        <br>
+        <div style="display: flex; justify-content: center; gap: 2rem;">
+            <div style="width: 40%">
+                    <button name="verificar" id="verificar" class="btn btn-default btn-novo" alt="Visualizar documento" onclick="visualizarDoc();" title="Visualizar documento" style="outline:none;">
+                    
+                        <span style="white-space: pre-wrap;">VISUALIZAR DOCUMENTO</span>
+                    </button>
+            
+            </div>
+            <div style="width: 40%">
+				<button class="btn-style" onclick="window.print()">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="black">
+						<path d="M6 9V3h12v6h4v9h-4v4H6v-4H2V9h4zm2-4v4h8V5H8zm8 12v-4H8v4h8zm2-3h2v-3h-2v3z" />
+					</svg>
+					IMPRIMIR
+				</button>
+				
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+<br>
+</div></div></div>
+
+</div></div></body></html>
